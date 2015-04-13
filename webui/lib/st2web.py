@@ -4,7 +4,7 @@ import uuid
 import st2web_locators
 from st2web_common import St2webCommon
 from lib.web.browser_factory import BrowserType
-from lib.web.browser_factory import BrowserFactory
+from lib.web.implementation_factory import ImplementationFactory
 from st2web_login_page import St2webLoginPage
 from st2web_actions_page import St2webActionsPage
 from st2web_history_page import St2webHistoryPage
@@ -20,7 +20,7 @@ class St2web(St2webCommon):
         self.port = port
         self.url = "http://%s:%s/webui" % (host, port)
         self.print_step("Start st2web on Firefox at " + self.url)
-        self.browser = BrowserFactory().get_firefox()
+        self.browser = ImplementationFactory().get_firefox()
         self.browser.navigate_to_page(self.url, st2web_locators.LOGIN_PAGE_SIGNATURE)
 
     def close(self):
