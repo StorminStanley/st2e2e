@@ -2,8 +2,10 @@ from selenium_browser import SeleniumFirefox
 from selenium_wait_condition import SeleniumWaitForElementToBePresent
 from selenium_wait_condition import SeleniumWaitForElementToBeClickable
 
+
 class BrowserType:
     FIREFOX = 1
+
 
 class ImplementationFactory:
 

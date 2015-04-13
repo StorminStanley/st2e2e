@@ -1,5 +1,6 @@
 from abstract_web_element import WebElement
 
+
 class SeleniumWebElement(WebElement):
 
     def __init__(self, element):

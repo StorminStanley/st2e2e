@@ -3,6 +3,7 @@ from abstract_web_page import WebPage
 from selenium_web_element import SeleniumWebElement
 from selenium_wait_condition import SeleniumWaitForElementToBePresent
 
+
 class SeleniumWebPage(WebPage):
 
     def __init__(self, browser, page_signature_xpath):

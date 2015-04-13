@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
+
 class WaitCondition(object):
 
     __metaclass__ = ABCMeta
@@ -17,12 +18,14 @@ class WaitCondition(object):
         """ Return a wait object """
         pass
 
+
 class WaitForElementToBePresent(WaitCondition):
 
     __metaclass__ = ABCMeta
 
     def getLabel(self):
         return "Wait for %s to be present" % self.xpath
+
 
 class WaitForElementToBeClickable(WaitCondition):
 

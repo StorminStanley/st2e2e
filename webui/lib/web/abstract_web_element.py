@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
+
 class WebElement:
 
     __metaclass__ = ABCMeta
@@ -26,4 +27,3 @@ class WebElement:
     def get_text(self):
         """ Get text from the element """
         pass
-
