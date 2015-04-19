@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from abstract_web_page import WebPage
+
 
 class Browser:
 
@@ -10,12 +10,14 @@ class Browser:
 
     @abstractmethod
     def get_page(self, page_signature_xpath):
-        """ Return the instance of the current WebPage, after waiting for the presence of the page signature """
+        """ Return the instance of the current WebPage, after waiting for the
+        presence of the page signature """
         pass
 
     @abstractmethod
     def navigate_to_page(self, page_url, page_signature_xpath):
-        """ Navigate to provided URL, and return the instance of the WebPage, which will wait for the provided page signatuire to appear """
+        """ Navigate to provided URL, and return the instance of the WebPage,
+        which will wait for the provided page signatuire to appear """
         pass
 
     @abstractmethod

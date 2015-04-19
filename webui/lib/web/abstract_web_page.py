@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from abstract_wait_condition import WaitForElementToBePresent
+
 
 class WebPage:
 

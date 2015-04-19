@@ -3,6 +3,7 @@ from abstract_wait_condition import WaitForElementToBeClickable
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+
 class SeleniumWaitForElementToBePresent(WaitForElementToBePresent):
 
     def __init__(self, xpath):
@@ -10,6 +11,7 @@ class SeleniumWaitForElementToBePresent(WaitForElementToBePresent):
 
     def getObject(self):
         return EC.presence_of_element_located((By.XPATH, self.xpath))
+
 
 class SeleniumWaitForElementToBeClickable(WaitForElementToBeClickable):
 

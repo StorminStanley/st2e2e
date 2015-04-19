@@ -1,21 +1,22 @@
-import urllib
 import urllib2
 import uuid
 import st2web_locators
 from st2web_common import St2webCommon
-from lib.web.browser_factory import BrowserType
+from lib.web.implementation_factory import BrowserType
 from lib.web.implementation_factory import ImplementationFactory
 from st2web_login_page import St2webLoginPage
 from st2web_actions_page import St2webActionsPage
 from st2web_history_page import St2webHistoryPage
 from st2web_rules_page import St2webRulesPage
 
+
 class St2web(St2webCommon):
 
     def __init__(self, browser_type, host, port):
 
         if BrowserType.FIREFOX != browser_type:
-            raise ValueError("Current implementation only supports Firefox (%s), while %s was requested" % (BrowserType.FIREFOX, browser_type))
+            msg = "Current implementation only supports Firefox (%s), while %s was requested"
+            raise ValueError(msg % (BrowserType.FIREFOX, browser_type))
         self.host = host
         self.port = port
         self.url = "http://%s:%s/webui" % (host, port)

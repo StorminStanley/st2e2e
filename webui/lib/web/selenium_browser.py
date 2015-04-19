@@ -1,9 +1,10 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
 from selenium import webdriver
 from abstract_browser import Browser
 from selenium_web_page import SeleniumWebPage
 
 LOG_PREFIX = "  browser: "
+
 
 class SeleniumBrowser(Browser):
 
@@ -27,6 +28,7 @@ class SeleniumBrowser(Browser):
 
     def get_native_driver(self):
         return self.driver
+
 
 class SeleniumFirefox(SeleniumBrowser):
 

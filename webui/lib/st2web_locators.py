@@ -7,8 +7,10 @@ ACTIONS_RUN_STATUS = '//span[contains(@status, "record.status")]'
 
 HISTORY_PAGE_SIGNATURE = '//div[contains(@class, "view st2-history")]'
 HISTORY_EXECUTION_RESULT_STDOUT = '//div[contains(@code, "execution.result.stdout")]'
-HISTORY_EXECUTION_RESULT_STATUS = '//div[contains(@class, "action-reporter")]/span[contains(@status, "record.status")]'
-HISTORY_EXECUTION_RESULT_TRIGGER_PAYLOAD = '//dd[contains(@ng-if, "record.trigger_instance.payload")]'
+HISTORY_EXECUTION_RESULT_STATUS = \
+    '//div[contains(@class, "action-reporter")]/span[contains(@status, "record.status")]'
+HISTORY_EXECUTION_RESULT_TRIGGER_PAYLOAD = \
+    '//dd[contains(@ng-if, "record.trigger_instance.payload")]'
 
 RULES_PAGE_SIGNATURE = '//div[contains(@class, "view st2-rules")]'
 RULES_RULE_STATUS = '//div[contains(@class, "details") and contains(@class, "header-name")]/span'

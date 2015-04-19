@@ -2,7 +2,8 @@ import sys
 import unittest
 
 from lib.st2web import St2web
-from lib.web.browser_factory import BrowserType
+from lib.web.implementation_factory import BrowserType
+
 
 class TestSt2web(unittest.TestCase):
 
@@ -26,21 +27,22 @@ class TestSt2web(unittest.TestCase):
         rule_status = self.st2web.get_rules_page().get_rule_status('examples.webhook_file')
         self.assertEqual("Enabled", rule_status)
         trigger_id = self.st2web.post_to_web_hook()
-        trigger_status = self.st2web.get_history_page().get_status_of_last_execution('core.local')
+
+        history_page = self.st2web.get_history_page()
+        trigger_status = history_page.get_status_of_last_execution('core.local')
         self.assertEqual("Succeeded", trigger_status)
-        trigger_payload = self.st2web.get_history_page().get_trigger_payload_of_last_execution('core.local')
+        trigger_payload = history_page.get_trigger_payload_of_last_execution('core.local')
         self.assertContains(trigger_payload, trigger_id)
-        
+
     def tearDown(self):
         self.st2web.close()
 
     def assertContains(self, string, substring):
         if not substring in string:
-            failure.fail()
+            self.fail("'%s' doesn't contain '%s'" % (string, substring))
 
 if __name__ == "__main__":
     if len(sys.argv) > 3:
         TestSt2web.port = sys.argv.pop()
         TestSt2web.host = sys.argv.pop()
     unittest.main()
-
