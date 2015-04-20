@@ -25,16 +25,16 @@ class TestSt2web(unittest.TestCase):
         run_result = self.st2web.get_history_page().get_output_of_last_execution('core.local')
         self.assertEqual("Linux", run_result)
 
-#    def test_web_trigger(self):
-#        rule_status = self.st2web.get_rules_page().get_rule_status('examples.webhook_file')
-#        self.assertEqual("Enabled", rule_status)
-#        trigger_id = self.st2web.post_to_web_hook()
+    def test_web_trigger(self):
+        rule_status = self.st2web.get_rules_page().get_rule_status('examples.webhook_file')
+        self.assertEqual("Enabled", rule_status)
+        trigger_id = self.st2web.post_to_web_hook()
 
-#        history_page = self.st2web.get_history_page()
-#        trigger_status = history_page.get_status_of_last_execution('core.local')
-#        self.assertEqual("Succeeded", trigger_status)
-#        trigger_payload = history_page.get_trigger_payload_of_last_execution('core.local')
-#        self.assertContains(trigger_payload, trigger_id)
+        history_page = self.st2web.get_history_page()
+        trigger_status = history_page.get_status_of_last_execution('core.local')
+        self.assertEqual("Succeeded", trigger_status)
+        trigger_payload = history_page.get_trigger_payload_of_last_execution('core.local')
+        self.assertContains(trigger_payload, trigger_id)
 
     def tearDown(self):
         self.st2web.close()
