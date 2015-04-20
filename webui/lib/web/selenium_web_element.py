@@ -1,5 +1,5 @@
+from selenium.webdriver.common.keys import Keys
 from abstract_web_element import WebElement
-
 
 class SeleniumWebElement(WebElement):
 
@@ -16,8 +16,13 @@ class SeleniumWebElement(WebElement):
         self.element.send_keys(value)
 
     def click(self):
-        self.print_log("Click")
-        self.element.click()
+        if(self.element.get_attribute('type') == 'submit'):
+            self.print_log("Submit")
+            self.element.send_keys(Keys.ENTER) # Selenium bug workaround
+            self.element.submit()
+        else:
+            self.print_log("Click")
+            self.element.click()
 
     def get_text(self):
         text = self.element.text

@@ -19,7 +19,7 @@ class St2web(St2webCommon):
             raise ValueError(msg % (BrowserType.FIREFOX, browser_type))
         self.host = host
         self.port = port
-        self.url = "http://%s:%s/webui" % (host, port)
+        self.url = "http://%s:%s/webui/index.html" % (host, port)
         self.print_step("Start st2web on Firefox at " + self.url)
         self.browser = ImplementationFactory().get_firefox()
         self.browser.navigate_to_page(self.url, st2web_locators.LOGIN_PAGE_SIGNATURE)

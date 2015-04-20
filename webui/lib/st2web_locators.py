@@ -1,9 +1,12 @@
 LOGIN_PAGE_SIGNATURE = '//div[contains(@class,"login")]'
-LOGIN_BUTTON = '//input[contains(@class,"login__button")]'
+LOGIN_USERNAME = '//input[contains(@ng-model,"username")]'
+LOGIN_PASSWORD = '//input[contains(@ng-model,"password")]'
+LOGIN_BUTTON = '//input[contains(@value,"Connect")]'
 
 ACTIONS_PAGE_SIGNATURE = '//div[contains(@class, "view st2-actions")]'
 ACTIONS_RUN_BUTTON = '//button[contains(@class, "forms__button")]'
 ACTIONS_RUN_STATUS = '//span[contains(@status, "record.status")]'
+ACTIONS_RUN_TIMESTAMP = '//div[contains(@class, "actions__details-column-time")]'
 
 HISTORY_PAGE_SIGNATURE = '//div[contains(@class, "view st2-history")]'
 HISTORY_EXECUTION_RESULT_STDOUT = '//div[contains(@code, "execution.result.stdout")]'

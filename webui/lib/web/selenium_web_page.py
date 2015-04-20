@@ -11,5 +11,8 @@ class SeleniumWebPage(WebPage):
 
     def wait(self, condition):
         self.print_log(condition.getLabel())
-        found = WebDriverWait(self.browser.get_native_driver(), 10).until(condition.getObject())
+        found = WebDriverWait(self.browser.get_native_driver(), WebPage.LONG_WAIT).until(condition.getObject())
         return SeleniumWebElement(found)
+
+    def get(self, xpath):
+        return self.wait(SeleniumWaitForElementToBePresent(xpath))
