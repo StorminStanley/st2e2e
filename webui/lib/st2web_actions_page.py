@@ -25,7 +25,7 @@ class St2webActionsPage(St2webCommon):
         run_button.click()
 
         current_timestamp = self.get_last_timestamp()
-        pause = WebPage.LONG_WAIT / 5
+        pause = WebPage.SHORT_WAIT
         wait_until = time.time() + WebPage.LONG_WAIT
         while current_timestamp == previous_timestamp and wait_until - time.time() >= 0:
             time.sleep(pause)
@@ -34,7 +34,7 @@ class St2webActionsPage(St2webCommon):
         if current_timestamp == previous_timestamp:
             raise LookupError("New action execution did not appear within %d seconds" % WebPage.LONG_WAIT)
 
-        status = get_last_status()
+        status = self.get_last_status()
         self.print_actual("Action status is: " + status)
         return status
 

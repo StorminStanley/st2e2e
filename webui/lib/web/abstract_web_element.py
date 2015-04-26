@@ -15,7 +15,12 @@ class WebElement:
 
     @abstractmethod
     def type_value(self, value):
-        """ Type value into the lement """
+        """ Type value into the element """
+        pass
+
+    @abstractmethod
+    def type_value_in_list(self, value):
+        """ Type value that matches a value in the list and confirm list selection """
         pass
 
     @abstractmethod

@@ -33,3 +33,17 @@ class WaitForElementToBeClickable(WaitCondition):
 
     def getLabel(self):
         return "Wait for %s to be clickable" % self.xpath
+
+class WaitForElementToBeVisible(WaitCondition):
+
+    __metaclass__ = ABCMeta
+
+    def getLabel(self):
+        return "Wait for %s to be visible" % self.xpath
+
+class WaitForAlert(WaitCondition):
+
+    __metaclass__ = ABCMeta
+
+    def getLabel(self):
+        return "Wait for alert window to show up"

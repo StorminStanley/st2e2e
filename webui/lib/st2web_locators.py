@@ -14,9 +14,18 @@ HISTORY_EXECUTION_RESULT_STATUS = \
     '//div[contains(@class, "action-reporter")]/span[contains(@status, "record.status")]'
 HISTORY_EXECUTION_RESULT_TRIGGER_PAYLOAD = \
     '//dd[contains(@ng-if, "record.trigger_instance.payload")]'
+HISTORY_EXECUTION_RESULT_TRIGGERED_BY = \
+    '//div[contains(@class, "column-triggered")]/span[contains(@title, "%s")]'
 
 RULES_PAGE_SIGNATURE = '//div[contains(@class, "view st2-rules")]'
 RULES_RULE_STATUS = '//div[contains(@class, "details") and contains(@class, "header-name")]/span'
+RULES_ADD_RULE_BUTTON = '//button[contains(@class,"st2-panel__toolbar-button")]'
+RULES_NEW_RULE_NAME = '//div[@ng-model="newRule"]/div[@name="name"]/label/input'
+RULES_NEW_RULE_TRIGGER = '//div[@ng-model="newRule.trigger"]/div[@name="trigger"]/label/input'
+RULES_NEW_RULE_ACTION = '//div[@ng-model="newRule.action"]/div[@name="action"]/label/input'
+RULES_NEW_RULE_SAVE = '//form[@name="newform"]/input[@value="Save"]'
+RULES_TABLE_ROW = '//div[@ng-repeat="rule in rules"]'
+RULES_DELETE = '//div[contains(@class, "details__toolbar")]/input[@value="Delete"]'
 
 COMMON_VIEW_TITLE = '//div[contains(@class,"panel__toolbar-title") and contains(text(), "%s")]'
 COMMON_MENU_VIEW_LINK = '//a[contains(@href, "%s")]'
