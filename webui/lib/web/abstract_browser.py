@@ -21,6 +21,10 @@ class Browser:
         pass
 
     @abstractmethod
+    def get_cookie(self, name):
+        """ Return the value of the cookie with the provided name """
+
+    @abstractmethod
     def close(self):
         """ Close browser """
         pass

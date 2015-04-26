@@ -43,3 +43,7 @@ class St2webCommon:
         label = form.get_relative('..')
         input_element = label.get_relative('./input')
         input_element.type_value(value)
+
+    def wait_and_get_element(self, page, xpath):
+        wait_element = ImplementationFactory().get_wait_for_element_to_be_present(xpath)
+        return page.wait(wait_element)

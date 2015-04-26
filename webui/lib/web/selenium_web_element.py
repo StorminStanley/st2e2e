@@ -13,16 +13,16 @@ class SeleniumWebElement(WebElement):
 
     def type_value(self, value):
         self.print_log("Type value " + value)
+        self.element.click()
         self.element.send_keys(value)
 
+    def type_value_in_list(self, value):
+        self.type_value(value)
+        self.element.send_keys(Keys.RETURN)
+
     def click(self):
-        if(self.element.get_attribute('type') == 'submit'):
-            self.print_log("Submit")
-            self.element.send_keys(Keys.ENTER) # Selenium bug workaround
-            self.element.submit()
-        else:
-            self.print_log("Click")
-            self.element.click()
+        self.print_log("Click")
+        self.element.click()
 
     def get_text(self):
         text = self.element.text
