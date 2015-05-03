@@ -14,7 +14,7 @@ from st2web_rules_page import St2webRulesPage
 
 class St2web(St2webCommon):
 
-    def __init__(self, browser_type, host, port, auth_port):
+    def __init__(self, browser_type, host, port, auth_port, sample_webhook_port):
 
         if BrowserType.FIREFOX != browser_type:
             msg = "Current implementation only supports Firefox (%s), while %s was requested"
@@ -22,6 +22,7 @@ class St2web(St2webCommon):
         self.host = host
         self.port = port
         self.auth_port = auth_port
+        self.sample_webhook_port = sample_webhook_port
         self.url = "http://%s:%s" % (host, port)
         self.print_step("Start st2web on Firefox at " + self.url)
         self.browser = ImplementationFactory().get_firefox()
@@ -52,7 +53,7 @@ class St2web(St2webCommon):
         token = self.get_token(url, user, password)
 
         trigger_id = uuid.uuid1()
-        url = "http://%s:%s/v1/webhooks/sample" % (self.host, self.port)
+        url = "http://%s:%s/v1/webhooks/sample" % (self.host, self.sample_webhook_port)
         values = '{"foo": "%s", "name": "st2"}' % trigger_id
         headers = {'Content-type': 'application/json', 'X-Auth-Token': token}
         result = self.post_to_url(url, values, headers)
