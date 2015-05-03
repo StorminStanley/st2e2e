@@ -22,7 +22,7 @@ class St2web(St2webCommon):
         self.host = host
         self.port = port
         self.auth_port = auth_port
-        self.url = "http://%s:%s/webui/index.html" % (host, port)
+        self.url = "http://%s:%s" % (host, port)
         self.print_step("Start st2web on Firefox at " + self.url)
         self.browser = ImplementationFactory().get_firefox()
         self.browser.navigate_to_page(self.url, st2web_locators.LOGIN_PAGE_SIGNATURE)
