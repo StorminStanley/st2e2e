@@ -24,7 +24,6 @@ class St2webLoginPage(St2webCommon):
         wait_login_button = ImplementationFactory().get_wait_for_element_to_be_clickable(st2web_locators.LOGIN_BUTTON)
         login_button = login_page.wait(wait_login_button)
         login_button.click()
-        login_button.click() # Temporary workaround for STORM-1253
         
         self.wait_for_view_to_load(self.st2web.browser, self.DEFAULT_VIEW)
         self.print_actual("Logged-in successfully")
