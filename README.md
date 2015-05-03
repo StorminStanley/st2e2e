@@ -2,7 +2,7 @@
 
 ## Pre-Requisites
 
-1. Install firefox and Xvfb
+### Install firefox and Xvfb
 
 On Ubuntu / Debian:
 
@@ -16,7 +16,7 @@ On RedHat / Fedora:
     sudo yum -y install firefox Xvfb
     ```
 
-2. Download tests
+### Download tests
 
     ```
     git clone https://github.com/StackStorm/st2e2e
