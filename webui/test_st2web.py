@@ -11,7 +11,7 @@ class TestSt2web(unittest.TestCase):
 
     browser_type = BrowserType.FIREFOX
     host = 'localhost'
-    port = '9101'
+    port = '8080'
     auth_port = '9100'
     username = 'testu'
     password = 'testp'
