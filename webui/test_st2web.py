@@ -13,11 +13,12 @@ class TestSt2web(unittest.TestCase):
     host = 'localhost'
     port = '8080'
     auth_port = '9100'
+    example_webhook_port = 9101
     username = 'testu'
     password = 'testp'
 
     def setUp(self):
-        self.st2web = St2web(self.browser_type, self.host, self.port, self.auth_port)
+        self.st2web = St2web(self.browser_type, self.host, self.port, self.auth_port, self.example_webhook_port)
         self.st2web.get_login_page().login(self.username, self.password)
 
     def test_run_action(self):
