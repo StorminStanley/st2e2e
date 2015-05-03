@@ -35,6 +35,12 @@ class St2webActionsPage(St2webCommon):
             raise LookupError("New action execution did not appear within %d seconds" % WebPage.LONG_WAIT)
 
         status = self.get_last_status()
+        pause = WebPage.SHORT_WAIT
+        wait_until = time.time() + WebPage.LONG_WAIT
+        while (status == 'Scheduled' or status == 'Running') and wait_until - time.time() >= 0:
+            time.sleep(pause)
+            print "%d" % (wait_until - time.time())
+            status = self.get_last_status()
         self.print_actual("Action status is: " + status)
         return status
 
