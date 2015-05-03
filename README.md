@@ -1,30 +1,47 @@
 # StackStorm End-to-End Tests
 
-## Running Tests
+## Pre-Requisites
 
 1. Install firefox and Xvfb
+
+On Ubuntu / Debian:
 
     ```
     sudo apt-get install firefox xvfb
     ```
+    
+On RedHat / Fedora:
 
-2. Run X Virtual FrameBuffer then export DISPLAY
+    ```
+    sudo yum -y install firefox Xvfb
+    ```
+
+2. Download tests
+
+    ```
+    git clone https://github.com/StackStorm/st2e2e
+    cd st2e2e
+    ```
+
+## Running Tests
+
+1. Run X Virtual FrameBuffer then export DISPLAY
 
     ```
     sudo Xvfb :10 -ac &
     export DISPLAY=:10
     ```
 
-3. Run `make`.
+2. Run `make`.
 
   This will create virtualenv, install selenium and run the tests. If you need to run tests second time with requirements already installed, you can either run `make .tests` or
 
-  ```
-  . virtualenv/bin/activate
-  python webui/test_st2web.py [host port]
-  ```
+    ```
+    . virtualenv/bin/activate
+    python webui/test_st2web.py [host port]
+    ```
 
-By default, the tests will try to run on _localhost:9101_. To run tests on a different environment, specify host and port as arguments for the test.
+By default, the tests will try to run on _localhost:8080_. To run tests on a different environment, specify host and port as arguments for the test.
 
 ## Tests
 
@@ -45,9 +62,11 @@ At the end of each test the browser is closed.
 ### test_web_trigger
 
 1. Navigates to Rules tab
-2. Checks that ``examples.webhook_file`` is ``Enabled``
+2. Removes all existing rules (this is required to achieve non-ambiguous results)
+3. Creates the new rule with trigger ``core.st2.webhook`` and action ``core.local``
+2. Checks that new rule is ``Enabled``
 3. Issues an HTTP request, similar to one shown on Quick Start guide to activate the webhook. The request carries a unique ID, which makes sure the right request is checked in the history.
-4. Switches to History and verifies that the Status is ``Succeeded`` and Trigger Payload contains a unique ID, issued in previous step.
+4. Switches to History and verifies that the Status is ``Succeeded`` and Trigger Payload contains a unique ID, issued in previous step. Also checks that the action, started  by a trigger returns expected output.
 
 ## Concepts
 
