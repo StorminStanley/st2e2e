@@ -41,7 +41,7 @@ class St2webCommon:
         wait_form = ImplementationFactory().get_wait_for_element_to_be_present(locator_form)
         form = page.wait(wait_form)
         label = form.get_relative('..')
-        input_element = label.get_relative('./input')
+        input_element = label.get_relative('.//input | .//textarea')
         input_element.type_value(value)
 
     def wait_and_get_element(self, page, xpath):

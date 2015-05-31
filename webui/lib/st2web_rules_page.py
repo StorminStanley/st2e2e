@@ -20,7 +20,7 @@ class St2webRulesPage(St2webCommon):
         return rule_status
 
     def create_rule(self, rule_name, trigger_name, action_name, **kwargs):
-        self.print_step("Create a rule %s (with trigger %s and action %s)" % (rule_name, trigger_name, action_name))
+        self.print_step("Create a rule '%s' (with trigger '%s' and action '%s')" % (rule_name, trigger_name, action_name))
 
         rules_page = self.st2web.browser.get_page(st2web_locators.RULES_PAGE_SIGNATURE)
         

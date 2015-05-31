@@ -37,7 +37,7 @@ class St2webActionsPage(St2webCommon):
         status = self.get_last_status()
         pause = WebPage.SHORT_WAIT
         wait_until = time.time() + WebPage.LONG_WAIT
-        while (status == 'Scheduled' or status == 'Running') and wait_until - time.time() >= 0:
+        while (status == 'Scheduled' or status == 'Running' or status == 'Requested') and wait_until - time.time() >= 0:
             time.sleep(pause)
             print "%d" % (wait_until - time.time())
             status = self.get_last_status()
