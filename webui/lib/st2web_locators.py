@@ -20,7 +20,7 @@ HISTORY_EXECUTION_RESULT_TRIGGERED_BY = \
 RULES_PAGE_SIGNATURE = '//div[contains(@class, "view st2-rules")]'
 RULES_RULE_STATUS = '//div[contains(@class, "details") and contains(@class, "header-name")]/span'
 RULES_ADD_RULE_BUTTON = '//button[contains(@class,"st2-panel__toolbar-button")]'
-RULES_NEW_RULE_NAME = '//div[@ng-model="newRule"]/div[@name="name"]/label/span/textarea'
+RULES_NEW_RULE_NAME = '//div[@ng-model="newRule"]/div[@name="name"]/label/input'
 RULES_NEW_RULE_TRIGGER = '//div[@ng-model="newRule.trigger"]/div[@name="trigger"]/label/input'
 RULES_NEW_RULE_ACTION = '//div[@ng-model="newRule.action"]/div[@name="action"]/label/input'
 RULES_NEW_RULE_SAVE = '//form[@name="newform"]/input[@value="Save"]'

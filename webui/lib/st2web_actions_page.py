@@ -39,15 +39,19 @@ class St2webActionsPage(St2webCommon):
         wait_until = time.time() + WebPage.LONG_WAIT
         while (status == 'Scheduled' or status == 'Running' or status == 'Requested') and wait_until - time.time() >= 0:
             time.sleep(pause)
-            print "%d" % (wait_until - time.time())
             status = self.get_last_status()
         self.print_actual("Action status is: " + status)
         return status
 
     def get_last_timestamp(self):
         wait_result = ImplementationFactory().get_wait_for_element_to_be_present(st2web_locators.ACTIONS_RUN_TIMESTAMP)
-        result = self.st2web.current_view.wait(wait_result)
-        return result.get_text()
+        for i in range(0, 10):
+            try:
+                result = self.st2web.current_view.wait(wait_result)
+                return result.get_text()
+            except StaleElementReferenceException:
+                print "StaleElementReferenceException while getting timestamp. Retrying."
+        return ""
 
     def get_last_status(self):
         wait_result = ImplementationFactory().get_wait_for_element_to_be_present(st2web_locators.ACTIONS_RUN_STATUS)

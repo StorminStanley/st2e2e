@@ -37,6 +37,9 @@ class St2webHistoryPage(St2webCommon):
         history_page = self.st2web.browser.get_page(st2web_locators.HISTORY_PAGE_SIGNATURE)
         xpath = st2web_locators.HISTORY_EXECUTION_RESULT_TRIGGERED_BY % rule_name
         wait_new_execution = ImplementationFactory().get_wait_for_element_to_be_present(xpath)
+        column = history_page.wait(wait_new_execution)
+        row = column.get_relative('../..')
+        row.click()
         return
 
     def wait_for_execution_status(self, action_name, status):
