@@ -20,6 +20,7 @@ class TestSt2web(unittest.TestCase):
     def setUp(self):
         self.st2web = St2web(self.browser_type, self.host, self.port, self.auth_port, self.example_webhook_port)
         self.st2web.get_login_page().login(self.username, self.password)
+        self.st2web.get_rules_page().delete_all_rules()
 
     def test_run_action(self):
 
@@ -44,8 +45,6 @@ class TestSt2web(unittest.TestCase):
         rule_arguments = {'url': 'sample', 'cmd': 'echo ' + unique_echo}
         expected_rule_status = 'Enabled'
         expected_status = 'Succeeded'
-
-        self.st2web.get_rules_page().delete_all_rules()
 
         self.st2web.get_rules_page().create_rule(new_rule_name, tested_trigger, tested_action, **rule_arguments)
 
