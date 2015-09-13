@@ -38,7 +38,7 @@ On RedHat / Fedora:
 
     ```
     . virtualenv/bin/activate
-    python webui/test_st2web.py [host port]
+    python webui/test_st2web.py TestSt2web [host port] [username password]
     ```
 
 By default, the tests will try to run on _localhost:8080_. To run tests on a different environment, specify host and port as arguments for the test.
